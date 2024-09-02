@@ -1,0 +1,58 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lip/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    @* Header *@
+    <nav class="m-3">
+        <center>
+            <!-- Html Tag-->
+            <a href="/Home/Index" class="btn btn-primary">Home</a>
+            <a href="/Home/AboutUs" class="btn btn-warning">About Us</a>
+            <a href="/Home/Privacy" class="btn btn-success">Privacy</a>
+            <a href="/Home/Contact" class="btn btn-light">Contact</a>
+
+            <a href="/Account/Login" class="btn btn-danger">Login</a>
+            <a href="/Account/Register" class="btn btn-info">Register</a>
+            
+            <!-- HTML Helpers-->
+            @Html.ActionLink("Home", "Index", "Home", new { id = 10, name = "omar" }, new {@class="btn btn-primary"})
+           @*  @Html.BeginForm() *@
+            @* @Html.CheckBox() *@
+
+            <!-- Tag Helper-->
+            <a asp-Controller="Home" asp-Action="Index" asp-route-id="10" class="btn btn-primary">Home</a>
+            <a asp-Controller="Home" asp-Action="AboutUs" class="btn btn-warning">About Us</a>
+            <a asp-Controller="Home" asp-Action="Privacy" class="btn btn-success">Privacy</a>
+            <a asp-Controller="Home" asp-Action="Contact" class="btn btn-light">Contact</a>
+
+            <a asp-Controller="Account" asp-Action="Login" class="btn btn-danger">Login</a>
+            <a asp-Controller="Account" asp-Action="Register" class="btn btn-info">Register</a>
+        </center>
+    </nav>
+    @* Header *@
+
+    <div>
+        @RenderBody()
+    </div>
+
+    @* Footer *@
+    <footer>
+        <center>
+            <div>
+                <p>
+                    copytights &copy; for route @DateTime.Now.Year
+                </p>
+            </div>
+        </center>
+    </footer>
+    @* Footer *@
+</body>
+</html>
